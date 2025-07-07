@@ -5,6 +5,7 @@ pipeline {
          steps {
             echo "welcome maven"
          }
+        }
          stage('test') {
             steps {
             echo "welcome to test"
@@ -17,4 +18,4 @@ pipeline {
          }
         }
     }
-}
+
