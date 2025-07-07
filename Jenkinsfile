@@ -1,14 +1,19 @@
 pipeline {
-    agent any{
-    }
+    agent any
     stages {
         stage('Build') {
          steps {
             echo "welcome maven"
-         }stage('test'){
+         }
+         stage('test'){
+            steps{
             echo "welcome to test"
-         }stage('sonar'){
+            }
+         }
+         stage('sonar'){
+            steps{
             echo "welcome to sonar"
+            }
          }
         }
     }
