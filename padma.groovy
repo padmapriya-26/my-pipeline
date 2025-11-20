@@ -15,6 +15,7 @@ pipeline {
                 label 'java-slave'
             }
             steps {
+                cleanWs()
                 echo "***disply the other host***"
                 sh "hostname -i"
             }
