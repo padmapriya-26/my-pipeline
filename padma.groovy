@@ -1,20 +1,22 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-         steps {
-            echo "welcome maven"
-         }
+        stage('display the stage') {
+            steps {
+                retry(2) {
+                echo "*****Display the ip got executed****"
+                sh "hostname -i"
+
+                }
+            }
         }
-         stage('test') {
-            steps {
-            echo "welcome to test"
-            }
-         }
-         stage('sonar') {
-            steps {
-            echo "welcome to sonar"
-            }
-         }
+        stage('other build')
+        agent {
+            label 'java-slave'
+        }
+        steps {
+            echo "***display the ip "
+            sh "hostname -i"
         }
     }
+}
