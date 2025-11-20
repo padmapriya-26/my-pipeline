@@ -1,22 +1,23 @@
 pipeline {
     agent any
     stages {
-        stage('display the stage') {
+        stage('build the ip') {
             steps {
-                retry(2) {
-                echo "*****Display the ip got executed****"
-                sh "hostname -i"
-
+                retry(3) {
+                    echo "***display the host ip***"
+                    sh "hostname -i"
                 }
+
             }
         }
-        stage('other build')
-        agent {
-            label 'java-slave'
-        }
-        steps {
-            echo "***display the ip "
-            sh "hostname -i"
+        stage('other build') {
+            agent {
+                label 'java-slave'
+            }
+            steps {
+                echo "***disply the other host***"
+                sh "hostname -i"
+            }
         }
     }
 }
